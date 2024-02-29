@@ -3,7 +3,8 @@ const app = createApp({
     data() {
         return {
             title: 'lista',
-            todoList: ['disciplina', 'disciplina', 'disciplina', 'disciplina']
+            todoList: '',
+            newItem: '',
         };
     },
 
