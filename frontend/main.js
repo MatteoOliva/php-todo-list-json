@@ -1,11 +1,12 @@
 const { createApp } = Vue;
-const app = createApp({
+
+createApp({
     data() {
         return {
             title: 'lista',
             todoList: [],
             newItem: '',
-        };
+        }
     },
 
     methods: {
@@ -17,13 +18,26 @@ const app = createApp({
         },
 
         addTodoItem() {
-            console.log('item da aggiungere: ' + this.newItem);
+            const item = this.newItem
+            console.log('item da aggiungere: ' + item);
+
             this.newItem = '';
-        }
+
+            const data = {
+                params: { item },
+            };
+            const params = {
+                headers: {
+                    'Content-type': 'multipart/form-data'
+                }
+            };
+            axios.post('../backend/api/store-item.php', data, params).then((response) => {
+                console.log(response.data);
+            });
+        },
     },
 
     mounted() {
         this.fetchTodoList();
     },
-});
-app.mount('#app');
+}).mount('#app')
