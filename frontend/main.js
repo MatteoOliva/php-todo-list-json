@@ -3,19 +3,25 @@ const app = createApp({
     data() {
         return {
             title: 'lista',
-            todoList: '',
+            todoList: [],
             newItem: '',
         };
     },
 
     methods: {
         fetchTodoList() {
-            axios.get('http://localhost/php-todo-list-json/backend/api/get-list.php').then((response) => {
+            axios.get('../backend/api/get-list.php').then((response) => {
                 this.todoList = response.data;
                 console.log(response.data);
             });
         },
+
+        addTodoItem() {
+            console.log('item da aggiungere: ' + this.newItem);
+            this.newItem = '';
+        }
     },
+
     mounted() {
         this.fetchTodoList();
     },

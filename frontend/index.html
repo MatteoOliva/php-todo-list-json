@@ -31,9 +31,10 @@
         <div class="d-flex justify-content-center mt-3">
           <div class="card">
             <div class="card-body">
-                <h3>Aggiungi elemento</h3>
               <div class="input-group">
                 <input
+                  v-model="newItem"
+                  @keyUp.enter="addTodoItem()"
                   type="text"
                   class="form-control"
                   placeholder="Nuovo item"
@@ -41,6 +42,7 @@
                   aria-describedby="button-addon2"
                 />
                 <button
+                  @click="addTodoItem()"
                   class="btn btn-outline-success"
                   type="button"
                   id="button-addon2"
