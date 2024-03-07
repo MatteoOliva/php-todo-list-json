@@ -14,7 +14,7 @@ $json_result = json_encode($todolist_array);
 file_put_contents('../data/todolist.json', $json_result);
 
 // avvisare il browser che stiamo inviando il json per far si che vue riceva l'informazione
-header("Content-Type: application/json");
+header('Content-Type: application/json');
 
 // stampare la lista aggiornata
 echo $json_result;
