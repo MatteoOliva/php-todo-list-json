@@ -8,7 +8,7 @@ $todolist_array = json_decode($json_todolist);
 $todolist_array[] = $_POST['item'];
 
 // codifica  per il file json
-$json_result = json_encode($json_array);
+$json_result = json_encode($todolist_array);
 
 // fornire la nuova lista aggiornata
 file_put_contents('../data/todolist.json', $json_result);
