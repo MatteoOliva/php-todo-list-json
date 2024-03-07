@@ -23,16 +23,16 @@ createApp({
 
             this.newItem = '';
 
-            const data = {
-                params: { item },
-            };
+            const data = { item };
+            
             const params = {
                 headers: {
                     'Content-type': 'multipart/form-data'
-                }
+                },
             };
             axios.post('../backend/api/store-item.php', data, params).then((response) => {
                 console.log(response.data);
+                this.todoList = response.data;
             });
         },
     },
